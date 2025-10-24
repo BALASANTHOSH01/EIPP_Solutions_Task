@@ -97,8 +97,8 @@ const EditPage: React.FC = () => {
 
   if (loading && !currentUser) {
     return (
-      <Container className="py-5">
-        <div className="card border-0 shadow-sm">
+      <Container className="py-3 py-md-5">
+        <div className="card border-0 shadow">
           <div className="card-body text-center py-5">
             <div
               className="spinner-border text-primary mb-3"
@@ -118,37 +118,30 @@ const EditPage: React.FC = () => {
 
   return (
     <>
-      <Container className="py-5">
+      <Container className="py-3 py-md-5">
         <div className="row justify-content-center">
-          <div className="col-md-10 col-lg-8">
-            <div className="card border-0 shadow-lg">
+          <div className="col-12 col-md-10 col-lg-8">
+            <div className="card border-0 shadow">
               {/* Card Header */}
-              <div
-                className="card-header text-white py-4 border-0"
-                style={{
-                  background:
-                    "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-                }}
-              >
-                <h2 className="mb-0 text-center fw-bold">
+              <div className="card-header bg-primary text-white py-3 py-md-4 border-0">
+                <h2 className="mb-0 text-center fw-bold h4 h-md-3">
                   <i className="bi bi-pencil-square me-2"></i>
                   Edit User Details
                 </h2>
-                <p className="text-center mb-0 mt-2 opacity-75">
+                <p
+                  className="text-center mb-0 mt-2 small d-none d-sm-block"
+                  style={{ opacity: 0.9 }}
+                >
                   Update user information below
                 </p>
               </div>
 
-              <div className="card-body p-4 p-md-5">
+              <div className="card-body p-3 p-md-4 p-lg-5">
                 <form onSubmit={handleSubmit} noValidate>
                   {/* Personal Information Section */}
                   <div className="mb-2">
-                    <h5 className="text-primary mb-3 pb-2 border-bottom">
-                      <i className="bi bi-person-badge me-2"></i>Personal
-                      Information
-                    </h5>
                     <div className="row g-3">
-                      <div className="col-md-6">
+                      <div className="col-12 col-md-6">
                         <InputField
                           label="First Name"
                           name="firstName"
@@ -162,7 +155,7 @@ const EditPage: React.FC = () => {
                           maxLength={50}
                         />
                       </div>
-                      <div className="col-md-6">
+                      <div className="col-12 col-md-6">
                         <InputField
                           label="Last Name"
                           name="lastName"
@@ -181,7 +174,6 @@ const EditPage: React.FC = () => {
 
                   {/* Contact Information Section */}
                   <div className="mb-2">
-
                     <InputField
                       label="Email Address"
                       name="email"
@@ -197,7 +189,6 @@ const EditPage: React.FC = () => {
 
                   {/* Security Section */}
                   <div className="mb-2">
-                    
                     <InputField
                       label="Password"
                       name="password"
@@ -213,9 +204,8 @@ const EditPage: React.FC = () => {
 
                   {/* Additional Information Section */}
                   <div className="mb-2">
-              
                     <div className="row">
-                      <div className="col-md-12">
+                      <div className="col-12 col-md-12">
                         <InputField
                           label="Date of Birth"
                           name="dateOfBirth"
@@ -237,23 +227,21 @@ const EditPage: React.FC = () => {
                   </div>
 
                   {/* Buttons */}
-                  <div className="d-flex flex-column flex-md-row justify-content-end gap-3 mt-5 pt-3 border-top">
+                  <div className="d-flex flex-column flex-sm-row justify-content-end gap-2 gap-sm-3 mt-4 pt-3 pt-md-4 border-top">
                     <button
                       type="button"
-                      className="btn btn-outline-secondary btn-lg px-4"
+                      className="btn btn-outline-secondary px-4 py-2 order-2 order-sm-1"
                       onClick={() => navigate("/")}
+                      style={{ fontSize: "0.95rem" }}
                     >
-                      <i className="bi bi-x-circle me-2"></i>Cancel
+                      <i className="bi bi-x-circle me-2"></i>
+                      Cancel
                     </button>
                     <button
                       type="submit"
-                      className="btn btn-primary btn-lg px-5"
+                      className="btn btn-primary px-4 px-sm-5 py-2 order-1 order-sm-2"
                       disabled={loading}
-                      style={{
-                        background:
-                          "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-                        border: "none",
-                      }}
+                      style={{ fontSize: "0.95rem", fontWeight: "600" }}
                     >
                       {loading ? (
                         <>
@@ -266,7 +254,8 @@ const EditPage: React.FC = () => {
                         </>
                       ) : (
                         <>
-                          <i className="bi bi-check-circle me-2"></i>Update User
+                          <i className="bi bi-check-circle me-2"></i>
+                          Update User
                         </>
                       )}
                     </button>

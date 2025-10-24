@@ -1,4 +1,3 @@
-// UserTable.tsx
 import React from "react";
 import { UserRow } from "./UserRow";
 import type { User } from "../../types/index";
@@ -24,7 +23,8 @@ export const UserTable: React.FC<UserTableProps> = ({
         </h5>
       </div>
       <div className="card-body p-0">
-        <div className="table-responsive">
+        {/* Desktop Table View */}
+        <div className="table-responsive d-none d-md-block">
           <table className="table table-hover align-middle mb-0">
             <thead className="table-light">
               <tr>
@@ -65,6 +65,33 @@ export const UserTable: React.FC<UserTableProps> = ({
               )}
             </tbody>
           </table>
+        </div>
+
+        {/* Mobile Card View */}
+        <div className="d-md-none">
+          {users.length === 0 ? (
+            <div className="text-center py-5 px-3">
+              <div className="text-muted">
+                <i className="bi bi-inbox display-1 d-block mb-3 opacity-25"></i>
+                <h5 className="mb-2">No users found</h5>
+                <p className="small">Get started by adding your first user</p>
+              </div>
+            </div>
+          ) : (
+            <table className="table mb-0">
+              <tbody>
+                {users.map((user, index) => (
+                  <UserRow
+                    key={user.id}
+                    user={user}
+                    onDelete={onDelete}
+                    isDeleting={deleteId === user.id}
+                    isEven={index % 2 === 0}
+                  />
+                ))}
+              </tbody>
+            </table>
+          )}
         </div>
       </div>
       {users.length > 0 && (

@@ -6,59 +6,73 @@ const Navbar: React.FC = () => {
 
   return (
     <nav
-      className="navbar navbar-expand-lg navbar-dark shadow"
-      style={{
-        background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-      }}
+      className="navbar navbar-expand-lg navbar-dark bg-primary shadow"
+      style={{ minHeight: "70px" }}
     >
-      <div className="container">
+      <div className="container py-2">
         {/* Brand */}
         <Link
-          className="navbar-brand fw-bold fs-3 d-flex align-items-center"
+          className="navbar-brand fw-bold d-flex align-items-center text-white"
           to="/"
+          style={{ fontSize: "1.3rem" }}
         >
-          <i className="bi bi-people-fill me-2"></i>
-          <span>User Management</span>
+          <i
+            className="bi bi-people-fill me-2"
+            style={{ fontSize: "1.5rem" }}
+          ></i>
+          <span className="d-none d-sm-inline">User Management</span>
+          <span className="d-inline d-sm-none">Users</span>
         </Link>
 
         {/* Toggler */}
         <button
-          className="navbar-toggler border-0"
+          className="navbar-toggler border-0 px-3 py-2"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNav"
           aria-controls="navbarNav"
           aria-expanded="false"
           aria-label="Toggle navigation"
+          style={{ fontSize: "1.2rem" }}
         >
           <span className="navbar-toggler-icon"></span>
         </button>
 
         {/* Nav Links */}
         <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav ms-auto align-items-lg-center">
+          <ul className="navbar-nav ms-auto">
             <li className="nav-item">
               <Link
-                className={`nav-link px-3 py-2 rounded ${
+                className={`nav-link px-4 py-2 rounded my-1 my-lg-0 d-flex align-items-center ${
                   location.pathname === "/"
-                    ? "bg-white text-primary fw-bold"
+                    ? "bg-white text-primary fw-semibold"
                     : "text-white"
                 }`}
                 to="/"
+                style={{ fontSize: "1rem" }}
               >
-                <i className="bi bi-list-ul me-2"></i>Users
+                <i
+                  className="bi bi-list-ul me-2"
+                  style={{ fontSize: "1.1rem" }}
+                ></i>
+                <span>Users</span>
               </Link>
             </li>
-            <li className="nav-item ms-2">
+            <li className="nav-item ms-lg-2">
               <Link
-                className={`nav-link px-3 py-2 rounded ${
+                className={`nav-link px-4 py-2 rounded my-1 my-lg-0 d-flex align-items-center ${
                   location.pathname === "/register"
-                    ? "bg-white text-primary fw-bold"
+                    ? "bg-white text-primary fw-semibold"
                     : "text-white"
                 }`}
                 to="/register"
+                style={{ fontSize: "1rem" }}
               >
-                <i className="bi bi-person-plus-fill me-2"></i>Register
+                <i
+                  className="bi bi-person-plus-fill me-2"
+                  style={{ fontSize: "1.1rem" }}
+                ></i>
+                <span>Register</span>
               </Link>
             </li>
           </ul>

@@ -12,24 +12,33 @@ const UserListPage: React.FC = () => {
     <Container className="py-5">
       {/* Header Section */}
       <div className="row mb-4">
-        <div className="col">
-          <div className="d-flex justify-content-between align-items-center bg-light p-4 rounded-3 shadow-sm border">
-            <div>
-              <h1 className="mb-1 fw-bold text-primary">
-                <i className="bi bi-people-fill me-2"></i>User Management
-              </h1>
-              <p className="text-muted mb-0 small">
-                Manage your users efficiently
-              </p>
+        <div className="col-12">
+          <div className="bg-light p-3 p-lg-4 rounded-3 shadow-sm border">
+            <div className="d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center gap-3">
+              {/* Title and subtitle */}
+              <div>
+                <h1 className="h4 h-lg-3 fw-bold text-primary d-flex align-items-center mb-1">
+                  <i className="bi bi-people-fill me-2 fs-5"></i>
+                  User Management
+                </h1>
+                <p className="text-muted mb-0" style={{ fontSize: "0.9rem" }}>
+                  Manage and organize your users efficiently
+                </p>
+              </div>
+
+              {/* Add New User Button */}
+              <Link
+                to="/register"
+                className="btn btn-primary shadow-sm d-flex align-items-center px-4 py-2 flex-shrink-0"
+                style={{ fontSize: "0.95rem", fontWeight: "600" }}
+              >
+                <i className="bi bi-person-plus-fill me-2"></i>
+                Add New User
+              </Link>
             </div>
-            <Link to="/register" className="btn btn-primary btn-lg shadow-sm">
-              <i className="bi bi-person-plus-fill me-2"></i>Add New User
-            </Link>
           </div>
         </div>
       </div>
-
-      
 
       {/* Error Alert */}
       {error && (

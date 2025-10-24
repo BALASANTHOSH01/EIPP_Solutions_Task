@@ -23,16 +23,18 @@ const ViewPage: React.FC = () => {
 
   if (loading) {
     return (
-      <Container className="mt-5">
-        <div className="text-center py-5">
-          <div
-            className="spinner-border text-primary"
-            role="status"
-            style={{ width: "3rem", height: "3rem" }}
-          >
-            <span className="visually-hidden">Loading...</span>
+      <Container className="py-3 py-md-5">
+        <div className="card border-0 shadow">
+          <div className="card-body text-center py-5">
+            <div
+              className="spinner-border text-primary mb-3"
+              role="status"
+              style={{ width: "3rem", height: "3rem" }}
+            >
+              <span className="visually-hidden">Loading...</span>
+            </div>
+            <h5 className="text-muted">Loading user details...</h5>
           </div>
-          <p className="mt-3 text-muted fs-5">Loading user details...</p>
         </div>
       </Container>
     );
@@ -40,24 +42,29 @@ const ViewPage: React.FC = () => {
 
   if (error || !currentUser) {
     return (
-      <Container className="mt-5">
+      <Container className="py-3 py-md-5">
         <div className="row justify-content-center">
-          <div className="col-md-8 col-lg-6">
-            <div className="alert alert-danger border-0 shadow-sm" role="alert">
-              <h4 className="alert-heading">
-                <i className="bi bi-exclamation-triangle-fill me-2"></i>
-                Error
-              </h4>
-              <p className="mb-0">{error || "User not found"}</p>
-            </div>
-            <div className="text-center">
-              <button
-                className="btn btn-primary btn-lg px-5"
-                onClick={() => navigate("/")}
-              >
-                <i className="bi bi-arrow-left me-2"></i>
-                Back to List
-              </button>
+          <div className="col-12 col-md-10 col-lg-8">
+            <div className="card border-0 shadow">
+              <div className="card-body p-3 p-md-4">
+                <div className="alert alert-danger border-0 mb-4" role="alert">
+                  <h4 className="alert-heading">
+                    <i className="bi bi-exclamation-triangle-fill me-2"></i>
+                    Error
+                  </h4>
+                  <p className="mb-0">{error || "User not found"}</p>
+                </div>
+                <div className="text-center">
+                  <button
+                    className="btn btn-primary px-4 py-2"
+                    onClick={() => navigate("/")}
+                    style={{ fontSize: "0.95rem", fontWeight: "600" }}
+                  >
+                    <i className="bi bi-arrow-left me-2"></i>
+                    Back to List
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -66,26 +73,29 @@ const ViewPage: React.FC = () => {
   }
 
   return (
-    <Container className="mt-5 mb-5">
+    <Container className="py-3 py-md-5">
       <div className="row justify-content-center">
-        <div className="col-md-10 col-lg-8">
-          <div className="card border-0 shadow-lg rounded-4 overflow-hidden">
-            {/* Card Header with Gradient */}
-            <div className="card-header bg-gradient bg-primary text-white py-4 border-0">
+        <div className="col-12 col-md-10 col-lg-8">
+          <div className="card border-0 shadow">
+            {/* Card Header */}
+            <div className="card-header bg-primary text-white py-3 py-md-4 border-0">
               <div className="text-center">
                 <div
-                  className="bg-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3"
-                  style={{ width: "80px", height: "80px" }}
+                  className="bg-white rounded-circle d-inline-flex align-items-center justify-content-center mb-2 mb-md-3"
+                  style={{ width: "60px", height: "60px" }}
                 >
-                  <span className="text-primary fw-bold display-4">
+                  <span className="text-primary fw-bold fs-3">
                     {currentUser.firstName.charAt(0).toUpperCase()}
                     {currentUser.lastName.charAt(0).toUpperCase()}
                   </span>
                 </div>
-                <h2 className="card-title mb-1 fw-bold">
+                <h2 className="mb-1 fw-bold h4 h-md-3">
                   {currentUser.firstName} {currentUser.lastName}
                 </h2>
-                <p className="mb-0 opacity-75">
+                <p
+                  className="mb-0 small d-none d-sm-block"
+                  style={{ opacity: 0.9 }}
+                >
                   <i className="bi bi-envelope-fill me-2"></i>
                   {currentUser.email}
                 </p>
@@ -93,33 +103,29 @@ const ViewPage: React.FC = () => {
             </div>
 
             {/* Card Body */}
-            <div className="card-body p-5">
-              <h5 className="text-muted text-uppercase mb-4 fw-bold border-bottom pb-2">
-                Personal Information
-              </h5>
-
-              <div className="row g-4">
+            <div className="card-body p-3 p-md-4 p-lg-5">
+              <div className="row g-3">
                 {/* First Name */}
-                <div className="col-md-6">
-                  <div className="p-3 bg-light rounded-3 border border-light">
+                <div className="col-12 col-md-6">
+                  <div className="p-3 bg-light rounded border border-light">
                     <label className="form-label text-muted small mb-1 fw-semibold">
                       <i className="bi bi-person-fill me-2 text-primary"></i>
                       FIRST NAME
                     </label>
-                    <p className="mb-0 fs-5 fw-semibold text-dark">
+                    <p className="mb-0 fs-6 fw-semibold text-dark">
                       {currentUser.firstName}
                     </p>
                   </div>
                 </div>
 
                 {/* Last Name */}
-                <div className="col-md-6">
-                  <div className="p-3 bg-light rounded-3 border border-light">
+                <div className="col-12 col-md-6">
+                  <div className="p-3 bg-light rounded border border-light">
                     <label className="form-label text-muted small mb-1 fw-semibold">
                       <i className="bi bi-person-fill me-2 text-primary"></i>
                       LAST NAME
                     </label>
-                    <p className="mb-0 fs-5 fw-semibold text-dark">
+                    <p className="mb-0 fs-6 fw-semibold text-dark">
                       {currentUser.lastName}
                     </p>
                   </div>
@@ -127,25 +133,25 @@ const ViewPage: React.FC = () => {
 
                 {/* Email */}
                 <div className="col-12">
-                  <div className="p-3 bg-light rounded-3 border border-light">
+                  <div className="p-3 bg-light rounded border border-light">
                     <label className="form-label text-muted small mb-1 fw-semibold">
                       <i className="bi bi-envelope-fill me-2 text-primary"></i>
                       EMAIL ADDRESS
                     </label>
-                    <p className="mb-0 fs-5 fw-semibold text-dark text-break">
+                    <p className="mb-0 fs-6 fw-semibold text-dark text-break">
                       {currentUser.email}
                     </p>
                   </div>
                 </div>
 
                 {/* Date of Birth */}
-                <div className="col-12">
-                  <div className="p-3 bg-light rounded-3 border border-light">
+                <div className="col-12 col-md-6">
+                  <div className="p-3 bg-light rounded border border-light">
                     <label className="form-label text-muted small mb-1 fw-semibold">
                       <i className="bi bi-calendar-fill me-2 text-primary"></i>
                       DATE OF BIRTH
                     </label>
-                    <p className="mb-0 fs-5 fw-semibold text-dark">
+                    <p className="mb-0 fs-6 fw-semibold text-dark">
                       {new Date(currentUser.dateOfBirth).toLocaleDateString(
                         "en-US",
                         {
@@ -159,13 +165,13 @@ const ViewPage: React.FC = () => {
                 </div>
 
                 {/* Age Badge */}
-                <div className="col-12">
-                  <div className="p-3 bg-info bg-opacity-10 rounded-3 border border-info border-opacity-25">
-                    <label className="form-label text-info small mb-1 fw-semibold">
-                      <i className="bi bi-person-badge-fill me-2"></i>
+                <div className="col-12 col-md-6">
+                  <div className="p-3 bg-light rounded border border-light">
+                    <label className="form-label text-muted small mb-1 fw-semibold">
+                      <i className="bi bi-person-badge-fill me-2 text-primary"></i>
                       AGE
                     </label>
-                    <p className="mb-0 fs-5 fw-semibold text-info">
+                    <p className="mb-0 fs-6 fw-semibold text-dark">
                       {(() => {
                         const birthDate = new Date(currentUser.dateOfBirth);
                         const today = new Date();
@@ -185,31 +191,29 @@ const ViewPage: React.FC = () => {
                   </div>
                 </div>
               </div>
-            </div>
 
-            {/* Card Footer */}
-            <div className="card-footer bg-light border-0 p-4">
-              <div className="d-flex flex-column flex-md-row gap-3 justify-content-center">
-                <Link
-                  to={`/edit/${currentUser.id}`}
-                  className="btn btn-warning btn-lg px-5 rounded-pill shadow-sm"
-                >
-                  <i className="bi bi-pencil-fill me-2"></i>
-                  Edit User
-                </Link>
+              {/* Buttons */}
+              <div className="d-flex flex-column flex-sm-row justify-content-end gap-2 gap-sm-3 mt-4 pt-3 pt-md-4 border-top">
                 <button
                   type="button"
-                  className="btn btn-outline-secondary btn-lg px-5 rounded-pill"
+                  className="btn btn-outline-secondary px-4 py-2 order-2 order-sm-1"
                   onClick={() => navigate("/")}
+                  style={{ fontSize: "0.95rem" }}
                 >
                   <i className="bi bi-arrow-left me-2"></i>
                   Back to List
                 </button>
+                <Link
+                  to={`/edit/${currentUser.id}`}
+                  className="btn btn-primary px-4 px-sm-5 py-2 order-1 order-sm-2"
+                  style={{ fontSize: "0.95rem", fontWeight: "600" }}
+                >
+                  <i className="bi bi-pencil-fill me-2"></i>
+                  Edit User
+                </Link>
               </div>
             </div>
           </div>
-
-       
         </div>
       </div>
     </Container>
